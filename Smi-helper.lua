@@ -1,5 +1,5 @@
-script_version('1.1')
-script_author('Flash_Akamatsu')
+script_version('1.2')
+script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
 
@@ -3545,7 +3545,7 @@ local main_menu = imgui.OnFrame(
 		end
 		if smi_menu == 'about' then
 			imgui.BeginChild('about', imgui.ImVec2(-1, 233 * MONET_DPI_SCALE), true)
-			imgui.TextColoredRGB('Автор скрипта: Flash_Akamatsu')
+			imgui.TextColoredRGB('Автор скрипта:smiplalkeo')
 			if not isMonetLoader() then
 				if imgui.IsItemHovered() then imgui.SetTooltip(u8"Кликните ЛКМ, чтобы скопировать, или ПКМ, чтобы открыть в браузере")  end
 				if imgui.IsItemClicked(0) then setClipboardText("") end
