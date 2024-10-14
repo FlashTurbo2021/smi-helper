@@ -3571,7 +3571,7 @@ local main_menu = imgui.OnFrame(
 				if imgui.IsItemHovered() then imgui.SetTooltip(u8"Кликните ЛКМ, чтобы выгрузить скрипт")  end -- для выгрузки
 			imgui.SameLine()
 			if imgui.Button(u8'Проверить обновления') then
-				buttonupdate('https://raw.githubusercontent.com/FlashTurbo2021/smi-helper/refs/heads/main/update.jsonn','[SMI-HELPER]{FFFFFF}','url')
+				buttonupdate('https://raw.githubusercontent.com/FlashTurbo2021/smi-helper/refs/heads/main/update.json','[SMI-HELPER]{FFFFFF}','url')
 			end
 				if imgui.IsItemHovered() then imgui.SetTooltip(u8"Кликните ЛКМ, чтобы проверить обновления скрипта")  end -- для обнов
 			imgui.Text(u8'Если у вас есть какие-то проблемы/баги - напишите разработчику скрипта')
