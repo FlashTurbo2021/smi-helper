@@ -1,4 +1,4 @@
-script_version('1.0')
+script_version('1.1')
 script_author('Flash_Akamatsu')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
