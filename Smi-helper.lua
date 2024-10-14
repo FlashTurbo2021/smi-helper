@@ -4197,7 +4197,7 @@ end
 function update()
 	prefix = '[SMI-HELPER]{FFFFFF}'
 	color = curcolor1
-	local file, code = downloadFileToPath2('https://github.com/FlashTurbo2021/smi-helper/raw/refs/heads/main/Smi%20helper.lua', thisScript().path)
+	local file, code = downloadFileToPath2('https://raw.githubusercontent.com/FlashTurbo2021/smi-helper/refs/heads/main/Smi-helper.lua', thisScript().path)
 	if file then
 		print('Загрузка обновления завершена.')
 		sampAddChatMessage((prefix..' Обновление завершено!'), color)
