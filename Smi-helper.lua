@@ -1,4 +1,4 @@
-script_version('1.3')
+script_version('1.4')
 script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
@@ -598,13 +598,13 @@ house_dop_items = imgui.new['const char*'][#house_dop](house_dop)
 selected_house_dop = imgui.new.int(0)
 
 types = {
-	{u8'а/м', u8'р/с', u8'а/с', u8'в/т', u8'д/т',u8'Карточка "Add Vip'},
+	{u8'а/м', u8'р/с', u8'а/с', u8'в/т', u8'д/т',u8'о/п',u8'Карточка "Add Vip'},
 	nil,
 	imgui.new.int(0)
 }
 types[2] = imgui.new['const char*'][#types[1]](types[1])
 types2 = {
-	{u8'а/м', u8'р/с', u8'а/с', u8'в/т', u8'д/т',u8'Карточка "Add Vip'},
+	{u8'а/м', u8'р/с', u8'а/с', u8'в/т', u8'д/т',u8'о/п',u8'Карточка "Add Vip'},
 	nil,
 	imgui.new.int(0)
 }
@@ -1827,7 +1827,7 @@ local edit_h = imgui.OnFrame(
 		imgui.PopItemWidth()
 		imgui.SameLine()
 		
-		imgui.Ques('а/м - Автомобиль\nр/с - Ресурс \nа/с - Акссуар \n в/т - Воздушный транспорт \n д/т - Деталь тюнинга \nКарточка "Add Vip" - Add vip')
+		imgui.Ques('а/м - Автомобиль\nр/с - Ресурс \nа/с - Акссуар \n в/т - Воздушный транспорт \n д/т - Деталь тюнинга \n о/п - Одежда пошива \nКарточка "Add Vip" - Add vip')
 		imgui.PushItemWidth(75 * MONET_DPI_SCALE)
 		if imgui.InputInt(u8"##GRAVIROVKA", grav) then 
 			grav[0] = grav[0] < 0 and 0 or grav[0] > 12 and 12 or grav[0]
