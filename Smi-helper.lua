@@ -1,4 +1,4 @@
-script_version('1.4')
+script_version('TEST')
 script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
@@ -1887,6 +1887,13 @@ local edit_h = imgui.OnFrame(
 		imgui.SameLine(190 * MONET_DPI_SCALE)
 		if imgui.Button(u8'Цена за шт: договорная', imgui.ImVec2(160 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
 			imgui.StrCopy(ad_d, str(ad_d)..u8". Цена за шт: договорная")
+		end
+		if imgui.Button(u8'Бюджет за час: свободный', imgui.ImVec2(175 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
+			imgui.StrCopy(ad_d, str(ad_d)..u8". Бюджет за час: свободный")
+		end
+		imgui.SameLine(190 * MONET_DPI_SCALE)
+		if imgui.Button(u8'Цена за час: договорная', imgui.ImVec2(160 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
+			imgui.StrCopy(ad_d, str(ad_d)..u8". Цена за час: договорная")
 		end
 		imgui.PushItemWidth(100 * MONET_DPI_SCALE)
 		imgui.InputText("##PRICE", price, ffi.sizeof(price))
