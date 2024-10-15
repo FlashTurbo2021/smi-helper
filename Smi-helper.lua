@@ -1,4 +1,4 @@
-script_version('1.5')
+script_version('1.6')
 script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
@@ -1818,6 +1818,9 @@ local edit_h = imgui.OnFrame(
 		imgui.SameLine(75 * MONET_DPI_SCALE)
 		if imgui.Button(u8'Продам', imgui.ImVec2(70 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
 			imgui.StrCopy(ad_d, u8"Продам ")
+		imgui.SameLine(75 * MONET_DPI_SCALE)
+		if imgui.Button(u8'Аренудую', imgui.ImVec2(70 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
+				imgui.StrCopy(ad_d, u8"Аренудую ")
 		end
 		imgui.SameLine()
 		imgui.PushItemWidth(50 * MONET_DPI_SCALE)
@@ -1858,7 +1861,7 @@ local edit_h = imgui.OnFrame(
 		if imgui.Combo('##COMBOHOUSEDOP', selected_house_dop, house_dop_items, #house_dop) then 
 		end
 		if imgui.Button(u8'Семья', imgui.ImVec2(60 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
-			imgui.StrCopy(ad_d, str(ad_d)..u8'Развитая Семья"Фама"Ищет родствеников.Ждем около"ЖК""'..biz[selected_biz[0]+1]..'"')
+			imgui.StrCopy(ad_d, str(ad_d)..u8'Развитая Семья"Фама"Ищет родствеников.Ждем около"ЖК")
 		end
 		imgui.PopItemWidth()
 		imgui.EndChild()
