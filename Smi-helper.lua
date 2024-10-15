@@ -1,4 +1,4 @@
-script_version('1.2')
+script_version('1.3')
 script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
@@ -3582,7 +3582,6 @@ local main_menu = imgui.OnFrame(
 			end
 			if imgui.IsItemHovered() then imgui.SetTooltip(u8"Кликните ЛКМ, чтобы написать разработчику")  end -- для сообщения о трабле/баге
 			imgui.TextColoredRGB('Версия: '..thisScript().version, 3)
-			if imgui.Button(faicons('INFO') .. u8' Чейнджлог', (imgui.ImVec2(200 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE))) then smi_menu = 'changelog' end
 			imgui.EndChild()
 		end
 		imgui.End()
