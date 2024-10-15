@@ -1,4 +1,4 @@
-script_version('1.5.1')
+script_version('1.5.2')
 script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
@@ -1858,7 +1858,7 @@ local edit_h = imgui.OnFrame(
 		if imgui.Combo('##COMBOHOUSEDOP', selected_house_dop, house_dop_items, #house_dop) then 
 		end
 		if imgui.Button(u8'Семья', imgui.ImVec2(60 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
-			imgui.StrCopy(ad_d, str(ad_d)..u8'Развитая Семья"Фама"Ищет родствеников.Ждем около"ЖК")
+			imgui.StrCopy(ad_d, str(ad_d)..u8'Развитая Семья"Фама"Ищет родствеников.Ждем около"ЖК"')
 		end
 		imgui.PopItemWidth()
 		imgui.EndChild()
