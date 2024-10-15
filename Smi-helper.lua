@@ -1,4 +1,4 @@
-script_version('TEST')
+script_version('1.5')
 script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
@@ -1781,7 +1781,7 @@ local edit_h = imgui.OnFrame(
 	function() return edit_helper[0] and not isPauseMenuActive() end,
 	function(self)
 		imgui.SetNextWindowPos(imgui.ImVec2(iScreenWidth / 2, iScreenHeight / 2), imgui.Cond.Always, imgui.ImVec2(0.5, 0.5))
-		imgui.SetNextWindowSize(imgui.ImVec2(790 * MONET_DPI_SCALE, 300 * MONET_DPI_SCALE)) -- 200
+		imgui.SetNextWindowSize(imgui.ImVec2(890 * MONET_DPI_SCALE, 400 * MONET_DPI_SCALE)) -- 200
 		imgui.Begin(u8'Объявление', edit_helper, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoTitleBar + imgui.WindowFlags.NoMove + imgui.WindowFlags.NoSavedSettings)
 		imgui.BeginChild('##text##12a3123', imgui.ImVec2(-1, 150 * MONET_DPI_SCALE), true)
 		imgui.CenterTextColoredRGB('Редактирование объявления')
@@ -1811,7 +1811,7 @@ local edit_h = imgui.OnFrame(
 		end
 		imgui.EndChild()
 
-		imgui.BeginChild("##M", imgui.ImVec2(300 * MONET_DPI_SCALE, 130 * MONET_DPI_SCALE), true)
+		imgui.BeginChild("##M", imgui.ImVec2(400 * MONET_DPI_SCALE, 230 * MONET_DPI_SCALE), true)
 		if imgui.Button(u8'Куплю', imgui.ImVec2(60 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
 			imgui.StrCopy(ad_d, u8"Куплю ")
 		end
@@ -1857,12 +1857,15 @@ local edit_h = imgui.OnFrame(
 		imgui.PushItemWidth(130 * MONET_DPI_SCALE)
 		if imgui.Combo('##COMBOHOUSEDOP', selected_house_dop, house_dop_items, #house_dop) then 
 		end
+		if imgui.Button(u8'Семья', imgui.ImVec2(60 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
+			imgui.StrCopy(ad_d, str(ad_d)..u8'Развитая Семья"Фама"Ищет родствеников.Ждем около"ЖК""'..biz[selected_biz[0]+1]..'"')
+		end
 		imgui.PopItemWidth()
 		imgui.EndChild()
 		imgui.SameLine()
 
 		---
-		imgui.BeginChild("##ASDASDM", imgui.ImVec2(-1, 130 * MONET_DPI_SCALE), true)
+		imgui.BeginChild("##ASDASDM", imgui.ImVec2(-1, 230 * MONET_DPI_SCALE), true)
 		if imgui.Button(u8'Бюджет: свободный', imgui.ImVec2(140 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
 			imgui.StrCopy(ad_d, str(ad_d)..u8". Бюджет: свободный")
 		end
