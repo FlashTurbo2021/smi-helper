@@ -1,4 +1,4 @@
-script_version('1.5.3')
+script_version('1.5.4')
 script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
@@ -1860,6 +1860,14 @@ local edit_h = imgui.OnFrame(
 		if imgui.Button(u8'Семья', imgui.ImVec2(60 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
 			imgui.StrCopy(ad_d, str(ad_d)..u8'Развитая Семья"Фама"Ищет родствеников.Ждем около"ЖК"')
 		end
+		imgui.SameLine(73 * MONET_DPI_SCALE)
+		if imgui.Button(u8'Гетто', imgui.ImVec2(60 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
+			imgui.StrCopy(ad_d, str(ad_d)..u8'Проходит набор в БК "Гетто" на 6 майку. Большие зп и премии. Ждем на районе!')
+		end
+		imgui.SameLine(138 * MONET_DPI_SCALE)
+		if imgui.Button(u8'" "', imgui.ImVec2(30 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
+			imgui.StrCopy(ad_d, str(ad_d)..u8'" "')
+		end
 		imgui.PopItemWidth()
 		imgui.EndChild()
 		imgui.SameLine()
@@ -1920,6 +1928,10 @@ local edit_h = imgui.OnFrame(
 		imgui.SameLine(112 * MONET_DPI_SCALE)
 		if imgui.Button(u8'Млрд.$', imgui.ImVec2(50 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
 		imgui.StrCopy(ad_d, str(ad_d)..u8" Млрд.$")
+		end
+		imgui.SameLine(165 * MONET_DPI_SCALE)
+		if imgui.Button(u8'$', imgui.ImVec2(30 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
+		imgui.StrCopy(ad_d, str(ad_d)..u8" $")
 		end		
 		imgui.EndChild()
 		---
