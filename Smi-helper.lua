@@ -1,4 +1,4 @@
-script_version('1.6.2.1')
+script_version('1.6.2')
 script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
@@ -4263,7 +4263,7 @@ function buttonupdate(json_url, prefix)
 			if updateversion ~= thisScript().version then
 				local color = curcolor1
 				sampAddChatMessage((prefix..' Обнаружено обновление. v'..updateversion), color)
-				sampAddChatMessage(prefix..' Для обновления используйте команду '..curcolor..'/update',' , Или кнопку в меню скрипта' color)
+				sampAddChatMessage(prefix..' Для обновления используйте команду '..curcolor..'/update', color)
 			else
 				update = false
 				sampAddChatMessage(prefix..' Обновления не найдены.', curcolor1)
