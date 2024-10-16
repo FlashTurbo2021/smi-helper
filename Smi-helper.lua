@@ -1,4 +1,4 @@
-script_version('1.5.4')
+script_version('DEV')
 script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
@@ -3594,6 +3594,17 @@ local main_menu = imgui.OnFrame(
 			imgui.SameLine()
 			if imgui.Button(u8'Проверить обновления') then
 				buttonupdate('https://raw.githubusercontent.com/FlashTurbo2021/smi-helper/main/update.json','[SMI-HELPER]{FFFFFF}','url')
+			end
+			imgui.SameLine()
+			if imgui.Button(u8'Обновить') then
+				local file, code = downloadFileToPath2('https://raw.githubusercontent.com/FlashTurbo2021/smi-helper/main/Smi-helper.lua', thisScript().path)
+				if file then
+					print('Загрузка обновления завершена.')
+					sampAddChatMessage((prefix..' Обновление завершено!'), color)
+					lua_thread.create(function() wait(500) thisScript():reload() end)
+				else
+					sampAddChatMessage((prefix..' Обновление прошло неудачно. Запускаю устаревшую версию..'), color)
+				end	
 			end
 				if imgui.IsItemHovered() then imgui.SetTooltip(u8"Кликните ЛКМ, чтобы проверить обновления скрипта")  end -- для обнов
 			imgui.Text(u8'Если у вас есть какие-то проблемы/баги - напишите разработчику скрипта')
