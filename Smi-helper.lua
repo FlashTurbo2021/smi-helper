@@ -1,4 +1,4 @@
-script_version('1.6')
+script_version('1.6.1')
 script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
