@@ -1,4 +1,4 @@
-script_version('1.6.1')
+script_version('1.6.2')
 script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
@@ -48,8 +48,6 @@ local memory = require 'memory'
 encoding.default = 'CP1251'
 u8 = encoding.UTF8
 local print, clock, sin, cos, floor, ceil, abs, format, gsub, gmatch, find, char, len, upper, lower, sub, u8, new, str, sizeof = print, os.clock, math.sin, math.cos, math.floor, math.ceil, math.abs, string.format, string.gsub, string.gmatch, string.find, string.char, string.len, string.upper, string.lower, string.sub, encoding.UTF8, imgui.new, ffi.string, ffi.sizeof
-
--- Взято из ADDONS.lua - https://www.blast.hk/threads/127255/
 addons = {}
 local AI_TOGGLE = {}
 local ToU32 = imgui.ColorConvertFloat4ToU32
@@ -1823,12 +1821,24 @@ local edit_h = imgui.OnFrame(
 		imgui.PushItemWidth(50 * MONET_DPI_SCALE)
 		if imgui.Combo(u8'##TYPES', types[3], types[2], #types[1]) then
 			imgui.StrCopy(ad_d, str(ad_d)..types[1][types[3][0]+1])
+			imgui.SameLine()
+			imgui.PushItemWidth(50 * MONET_DPI_SCALE)
+			if imgui.Combo(u8'##TYPES', types[3], types[2], #types[1]) then
+				imgui.StrCopy(ad_d, str(ad_d)..types[1][types[3][0]+1])
+			end
 		end
 		imgui.PopItemWidth()
 		imgui.SameLine()
 		
 		imgui.Ques('а/м - Автомобиль\nр/с - Ресурс \nа/с - Акссуар \n в/т - Воздушный транспорт \n д/т - Деталь тюнинга \n о/п - Одежда пошива \nКарточка "Add Vip" - Add vip')
 		imgui.PushItemWidth(75 * MONET_DPI_SCALE)
+		if imgui.Button(u8'Арендую', imgui.ImVec2(60 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
+			imgui.StrCopy(ad_d, u8"Арендую ")
+		end
+		imgui.SameLine(75 * MONET_DPI_SCALE)
+		if imgui.Button(u8'Сдам в аренду', imgui.ImVec2(100 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
+			imgui.StrCopy(ad_d, u8"Сдам в аренду ")
+		end
 		if imgui.InputInt(u8"##GRAVIROVKA", grav) then 
 			grav[0] = grav[0] < 0 and 0 or grav[0] > 12 and 12 or grav[0]
 		end
