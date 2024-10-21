@@ -1923,10 +1923,6 @@ local edit_h = imgui.OnFrame(
 			imgui.StrCopy(ad_d, str(ad_d)..u8". Ѕюджет за шт:"..str(price):gsub(u8'ккк',u8'млрд'):gsub(u8"кк",u8'млн'):gsub(u8'к',u8'тыс'))
 			imgui.SameLine(155 * MONET_DPI_SCALE)
 		end
-		imgui.PushItemWidth(100 * MONET_DPI_SCALE)
-		imgui.InputText("##PRICE", price, ffi.sizeof(price))
-		imgui.PopItemWidth()
-		imgui.SameLine(115 * MONET_DPI_SCALE)
 		if imgui.Button(u8'÷ена за час', imgui.ImVec2(80 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
 			imgui.StrCopy(ad_d, str(ad_d)..u8". ÷ена за час:договорна€")
 		end
