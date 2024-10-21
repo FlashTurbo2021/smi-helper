@@ -1,4 +1,4 @@
-script_version('1.6.3')
+script_version('1.6.4')
 script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
@@ -1928,12 +1928,11 @@ local edit_h = imgui.OnFrame(
 		imgui.PopItemWidth()
 		imgui.SameLine(115 * MONET_DPI_SCALE)
 		if imgui.Button(u8'Цена за час', imgui.ImVec2(80 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
-			imgui.StrCopy(ad_d, str(ad_d)..u8". Цена за час:"..str(price):gsub(u8'ккк',u8'млрд'):gsub(u8"кк",u8'млн'):gsub(u8'к',u8'тыс'))
+			imgui.StrCopy(ad_d, str(ad_d)..u8". Цена за час:договорная")
 		end
 		imgui.SameLine(200 * MONET_DPI_SCALE)
 		if imgui.Button(u8'Бюджет за час', imgui.ImVec2(100 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
-			imgui.StrCopy(ad_d, str(ad_d)..u8". Бюджет за час:"..str(price):gsub(u8'ккк',u8'млрд'):gsub(u8"кк",u8'млн'):gsub(u8'к',u8'тыс'))
-			imgui.SameLine(155 * MONET_DPI_SCALE)
+			imgui.StrCopy(ad_d, str(ad_d)..u8". Бюджет за час:свободный")
 		end
 			if imgui.Button(u8'Тыс.$', imgui.ImVec2(50 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
 			imgui.StrCopy(ad_d, str(ad_d)..u8" Тыс.$")
