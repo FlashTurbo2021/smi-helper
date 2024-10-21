@@ -1,4 +1,4 @@
-script_version('1.6.4')
+script_version('1.6.5')
 script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
@@ -1926,7 +1926,7 @@ local edit_h = imgui.OnFrame(
 		if imgui.Button(u8'÷ена за час', imgui.ImVec2(80 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
 			imgui.StrCopy(ad_d, str(ad_d)..u8". ÷ена за час:договорна€")
 		end
-		imgui.SameLine(200 * MONET_DPI_SCALE)
+		imgui.SameLine(93 * MONET_DPI_SCALE)
 		if imgui.Button(u8'Ѕюджет за час', imgui.ImVec2(100 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
 			imgui.StrCopy(ad_d, str(ad_d)..u8". Ѕюджет за час:свободный")
 		end
