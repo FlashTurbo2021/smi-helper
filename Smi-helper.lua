@@ -1,4 +1,4 @@
-script_version('1.6.2')
+script_version('1.6.3')
 script_author('smiplalkeo')
 
 if MONET_DPI_SCALE == nil then MONET_DPI_SCALE = 1.0 end
@@ -596,13 +596,13 @@ house_dop_items = imgui.new['const char*'][#house_dop](house_dop)
 selected_house_dop = imgui.new.int(0)
 
 types = {
-	{u8'а/м', u8'р/с', u8'а/с', u8'в/т', u8'д/т',u8'о/п',u8'Карточка "Add Vip"'},
+	{u8'а/м', u8'т/с',u8'л/т',  u8'р/с', u8'а/с', u8'в/т', u8'д/т',u8'о/п',u8'Карточка "Add Vip"'},
 	nil,
 	imgui.new.int(0)
 }
 types[2] = imgui.new['const char*'][#types[1]](types[1])
 types2 = {
-	{u8'а/м', u8'р/с', u8'а/с', u8'в/т', u8'д/т',u8'о/п',u8'Карточка "Add Vip"'},
+	{u8'а/м', u8'т/с',u8'л/т',  u8'р/с', u8'а/с', u8'в/т', u8'д/т',u8'о/п',u8'Карточка "Add Vip"'},
 	nil,
 	imgui.new.int(0)
 }
@@ -1827,11 +1827,6 @@ local edit_h = imgui.OnFrame(
 				imgui.StrCopy(ad_d, str(ad_d)..types[1][types[3][0]+1])
 			end
 		end
-		imgui.PopItemWidth()
-		imgui.SameLine()
-		
-		imgui.Ques('а/м - Автомобиль\nр/с - Ресурс \nа/с - Акссуар \n в/т - Воздушный транспорт \n д/т - Деталь тюнинга \n о/п - Одежда пошива \nКарточка "Add Vip" - Add vip')
-		imgui.PushItemWidth(75 * MONET_DPI_SCALE)
 		if imgui.Button(u8'Арендую', imgui.ImVec2(60 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
 			imgui.StrCopy(ad_d, u8"Арендую ")
 		end
@@ -1926,6 +1921,18 @@ local edit_h = imgui.OnFrame(
 		imgui.SameLine(200 * MONET_DPI_SCALE)
 		if imgui.Button(u8'Бюджет за шт', imgui.ImVec2(100 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
 			imgui.StrCopy(ad_d, str(ad_d)..u8". Бюджет за шт:"..str(price):gsub(u8'ккк',u8'млрд'):gsub(u8"кк",u8'млн'):gsub(u8'к',u8'тыс'))
+			imgui.SameLine(155 * MONET_DPI_SCALE)
+		end
+		imgui.PushItemWidth(100 * MONET_DPI_SCALE)
+		imgui.InputText("##PRICE", price, ffi.sizeof(price))
+		imgui.PopItemWidth()
+		imgui.SameLine(115 * MONET_DPI_SCALE)
+		if imgui.Button(u8'Цена за час', imgui.ImVec2(80 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
+			imgui.StrCopy(ad_d, str(ad_d)..u8". Цена за час:"..str(price):gsub(u8'ккк',u8'млрд'):gsub(u8"кк",u8'млн'):gsub(u8'к',u8'тыс'))
+		end
+		imgui.SameLine(200 * MONET_DPI_SCALE)
+		if imgui.Button(u8'Бюджет за час', imgui.ImVec2(100 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
+			imgui.StrCopy(ad_d, str(ad_d)..u8". Бюджет за час:"..str(price):gsub(u8'ккк',u8'млрд'):gsub(u8"кк",u8'млн'):gsub(u8'к',u8'тыс'))
 			imgui.SameLine(155 * MONET_DPI_SCALE)
 		end
 			if imgui.Button(u8'Тыс.$', imgui.ImVec2(50 * MONET_DPI_SCALE, 20 * MONET_DPI_SCALE)) then
